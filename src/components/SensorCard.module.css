@@ -1,0 +1,22 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+.card.alert {
+  background-color: #ffe5e5;
+  border-color: #ff4d4f;
+}
+.icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.info h4 {
+  margin: 0;
+}
+.info p {
+  margin: 0.2rem 0 0;
+}

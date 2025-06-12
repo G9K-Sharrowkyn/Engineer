@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import History from './pages/History';
+import './App.css'; // jeśli masz ogólne style
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav style={{ padding: '1rem', background: '#282c34' }}>
+        <NavLink to="/" end style={{ marginRight: 16, color: '#61dafb' }}>
+          Dashboard
+        </NavLink>
+        <NavLink to="/history" style={{ color: '#61dafb' }}>
+          Historia
+        </NavLink>
+      </nav>
+      <div style={{ padding: '1rem' }}>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/history" element={<History />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
