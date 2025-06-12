@@ -1,4 +1,3 @@
-// src/pages/History.js
 import React, { useEffect, useState } from 'react';
 import { fetchHistoricalData } from '../services/api';
 import ChartView from '../components/ChartView';

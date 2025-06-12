@@ -1,9 +1,8 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import History from './pages/History';
-import './App.css'; // jeśli masz ogólne style
+import './App.css';
 
 function App() {
   return (

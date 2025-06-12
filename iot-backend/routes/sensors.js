@@ -1,7 +1,6 @@
 import express from 'express';
 const router = express.Router();
 
-// statyczne dane bieżące
 const mockCurrent = [
   { id:'temperature', name:'Temperatura', value:22.5, unit:'°C', threshold:28, icon:'🌡️' },
   { id:'humidity',    name:'Wilgotność',  value:55,   unit:'%', threshold:60, icon:'💧' },
@@ -9,9 +8,7 @@ const mockCurrent = [
   { id:'light',       name:'Oświetlenie', value:300,  unit:'lux', threshold:500, icon:'💡' }
 ];
 
-// statyczne dane historyczne (przykład dla wykresu)
 function mockHistory(sensor, range) {
-  // generujemy ostatnie 24h co 2h
   const now = Date.now();
   const points = [];
   for (let i = 12; i >= 0; i--) {
@@ -23,12 +20,10 @@ function mockHistory(sensor, range) {
   return points;
 }
 
-// Endpoint: /api/current
 router.get('/current', (req, res) => {
   res.json(mockCurrent);
 });
 
-// Endpoint: /api/history/:sensor?range=24h
 router.get('/history/:sensor', (req, res) => {
   const { sensor } = req.params;
   const { range = '24h' } = req.query;

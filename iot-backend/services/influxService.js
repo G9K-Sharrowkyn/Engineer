@@ -7,8 +7,7 @@ async function getCurrentValues() {
     const result = await influx.query(`
       SELECT LAST(value) FROM temperature, humidity, co2, light
     `);
-
-    // jeśli seria pusta – zwracamy mock
+    
     if (!result.length) {
       return [
         { id:'temperature', name:'Temperatura', value:0, unit:'°C', threshold:28, icon:'🌡️' },
@@ -18,7 +17,6 @@ async function getCurrentValues() {
       ];
     }
 
-    // mapowanie wyników normalnie
     return [
       {
         id: 'temperature',
@@ -28,11 +26,9 @@ async function getCurrentValues() {
         threshold: 28,
         icon: '🌡️'
       },
-      /* …inne czujniki… */
     ];
   } catch (err) {
     console.error('Influx error:', err);
-    // w razie błędu też zwracamy mock, żeby frontend nie zamarł
     return [
       { id:'temperature', name:'Temperatura', value:0, unit:'°C', threshold:28, icon:'🌡️' },
       { id:'humidity',    name:'Wilgotność',  value:0, unit:'%', threshold:60, icon:'💧' },
